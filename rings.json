@@ -1,0 +1,433 @@
+[
+	{
+		"retailer": "Shiny Rock Polished",
+		"dimaond": {
+			"carat_weight": 0.58,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "I",
+			"clarity": "VS1",
+			"file": { "type": "video", "name": "srp diamond.mp4" }
+		},
+		"metal": "18ct White Gold",
+		"engraving": true,
+		"warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
+		"price": 25895,
+		"certificate": "LG594312878",
+		"box_image": "srp box.jpg",
+		"payment_terms": {
+			"options": [
+				"EFT",
+				"Credit Card",
+				"PayPal",
+				"Payflex",
+				"PayJustNow",
+				"Mobicred",
+				"Shiny Rock Payment Plan"
+			],
+			"terms": "Agreed deposit to secure diamonds then final payment prior to delivery or payment via a payment plan"
+		},
+		"manufacturing_timeframe": "4 weeks",
+		"delivery_timeframe": "2 - 4 working days",
+		"link": "https://shinyrockpolished.com/",
+		"reviews": {
+			"type": "Hellopeter",
+			"rating": 5,
+			"num_reviews": 8,
+			"link": "https://www.hellopeter.com/shiny-rock-polished"
+		}
+	},
+	{
+		"retailer": "Shimansky",
+		"dimaond": {
+			"carat_weight": 1.059,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "E",
+			"clarity": "VS2",
+			"file": { "type": "photo", "name": "shimansky diamond.png" }
+		},
+		"metal": "14ct White Gold",
+		"engraving": false,
+		"warranty": "Lifetime diamond guarantee.",
+		"price": 85350,
+		"certificate": null,
+		"box_image": null,
+		"payment_terms": {
+			"options": ["Credit Card"],
+			"terms": "Full price"
+		},
+		"manufacturing_timeframe": "4 weeks",
+		"delivery_timeframe": "overnight",
+		"link": "https://shimansky.co.za/",
+		"reviews": {
+			"type": "Hellopeter",
+			"rating": 3.2,
+			"num_reviews": 4,
+			"link": "https://www.hellopeter.com/shiny-rock-polished"
+		}
+	},
+	{
+		"retailer": "Uwe Koetter",
+		"dimaond": {
+			"carat_weight": 1.04,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "F",
+			"clarity": "VS2",
+			"file": { "type": null, "name": null }
+		},
+		"metal": "18ct White Gold",
+		"engraving": false,
+		"warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
+		"price": 35000,
+		"certificate": null,
+		"box_image": null,
+		"payment_terms": {
+			"options": ["EFT", "Credit Card", "PayPal"],
+			"terms": "Agreed deposit then final payment prior to delivery."
+		},
+		"manufacturing_timeframe": "",
+		"delivery_timeframe": "",
+		"link": "https://uwekoetter.com/",
+		"reviews": {
+			"type": "Google",
+			"rating": 5,
+			"num_reviews": 92,
+			"link": "https://www.google.com/search?q=uwe+koetter&rlz=1C1CHBF_enZA1076ZA1076&oq=uwe+koetter&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTINCAEQLhivARjHARiABDILCAIQRRgnGDsYigUyDAgDEAAYFBiHAhiABDIHCAQQABiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBCDE2NzlqMGo0qAIAsAIA&sourceid=chrome&ie=UTF-8#lrd=0x1dcc675d7a827fdd:0xf3cc942d5e13e5d9,1,,,,"
+		}
+	},
+	{
+		"retailer": "The Diamond Channel",
+		"dimaond": {
+			"carat_weight": 0.5,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "L",
+			"clarity": "SI2",
+			"file": { "type": "video", "name": "tdc diamond.mp4" }
+		},
+		"metal": "9ct White Gold",
+		"engraving": false,
+		"warranty": "Life time warranty on cleaning of the ring, 6 month warranty on any repairs needed, one free resize",
+		"price": 30000,
+		"certificate": null,
+		"box_image": "tdc box.jpg",
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "40% deposit then final payment prior to delivery or payment via a payment plan"
+		},
+		"manufacturing_timeframe": "4 - 5 weeks",
+		"delivery_timeframe": "2 - 4 working days",
+		"link": "https://www.thediamondchannel.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 4.7,
+			"num_reviews": 625,
+			"link": "https://www.google.com/search?q=the+diamond+channel&rlz=1C1CHBF_enZA1076ZA1076&oq=the+diamond+chann&gs_lcrp=EgZjaHJvbWUqCggAEAAY4wIYgAQyCggAEAAY4wIYgAQyDQgBEC4YrwEYxwEYgAQyDAgCEAAYFBiHAhiABDIHCAMQABiABDIGCAQQRRg5Mg0IBRAuGK8BGMcBGIAEMgYIBhBFGDwyBggHEEUYPNIBCDM1NzVqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "The Diamond Channel",
+		"dimaond": {
+			"carat_weight": 0.5,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "L",
+			"clarity": "SI2",
+			"file": {
+				"type": "video",
+				"name": "tdc diamond.mp4"
+			}
+		},
+		"metal": "18ct White Gold",
+		"engraving": false,
+		"warranty": "Life time warranty on cleaning of the ring, 6 month warranty on any repairs needed, one free resize",
+		"price": 33000,
+		"certificate": null,
+		"box_image": "tdc box.jpg",
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "40% deposit then final payment prior to delivery or payment via a payment plan"
+		},
+		"manufacturing_timeframe": "4 - 5 weeks",
+		"delivery_timeframe": "2 - 4 working days",
+		"link": "https://www.thediamondchannel.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 4.7,
+			"num_reviews": 625,
+			"link": "https://www.google.com/search?q=the+diamond+channel&rlz=1C1CHBF_enZA1076ZA1076&oq=the+diamond+chann&gs_lcrp=EgZjaHJvbWUqCggAEAAY4wIYgAQyCggAEAAY4wIYgAQyDQgBEC4YrwEYxwEYgAQyDAgCEAAYFBiHAhiABDIHCAMQABiABDIGCAQQRRg5Mg0IBRAuGK8BGMcBGIAEMgYIBhBFGDwyBggHEEUYPNIBCDM1NzVqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "The Diamond Channel",
+		"dimaond": {
+			"carat_weight": 0.5,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "L",
+			"clarity": "SI2",
+			"file": { "type": "video", "name": "tdc diamond.mp4" }
+		},
+		"metal": "Platinum",
+		"engraving": false,
+		"warranty": "Life time warranty on cleaning of the ring, 6 month warranty on any repairs needed, one free resize",
+		"price": 36000,
+		"certificate": null,
+		"box_image": "tdc box.jpg",
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "40% deposit then final payment prior to delivery or payment via a payment plan"
+		},
+		"manufacturing_timeframe": "4 - 5 weeks",
+		"delivery_timeframe": "2 - 4 working days",
+		"link": "https://www.thediamondchannel.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 4.7,
+			"num_reviews": 625,
+			"link": "https://www.google.com/search?q=the+diamond+channel&rlz=1C1CHBF_enZA1076ZA1076&oq=the+diamond+chann&gs_lcrp=EgZjaHJvbWUqCggAEAAY4wIYgAQyCggAEAAY4wIYgAQyDQgBEC4YrwEYxwEYgAQyDAgCEAAYFBiHAhiABDIHCAMQABiABDIGCAQQRRg5Mg0IBRAuGK8BGMcBGIAEMgYIBhBFGDwyBggHEEUYPNIBCDM1NzVqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "Grand Diamonds",
+		"dimaond": {
+			"carat_weight": 1.0,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "J",
+			"clarity": "VVS2",
+			"file": { "type": "photo", "name": "gd diamond.png" }
+		},
+		"metal": "18ct White Gold",
+		"engraving": true,
+		"warranty": "Warranty is on the workmanship of the ring. The ring should come in for a clean and polish once a year.  Free resizing on the ring up to 2 sizes bigger or smaller.",
+		"price": 26175,
+		"certificate": null,
+		"box_image": "gd box.jpeg",
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "50% deposit then final payment prior to delivery."
+		},
+		"manufacturing_timeframe": "8 - 10 working days",
+		"delivery_timeframe": "24 - 48 hours",
+		"link": "https://grand-diamonds.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 5,
+			"num_reviews": 273,
+			"link": "https://www.google.com/search?q=grand+diamonds&rlz=1C1CHBF_enZA1076ZA1076&oq=grand+diamonds&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgYIAhBFGDwyBggDEEUYPTIGCAQQRRg80gEIMTc3M2owajSoAgCwAgA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "Grand Diamonds",
+		"dimaond": {
+			"carat_weight": 1.0,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "J",
+			"clarity": "VVS2",
+			"file": { "type": "photo", "name": "gd diamond.png" }
+		},
+		"metal": "Platinum",
+		"engraving": true,
+		"warranty": "Warranty is on the workmanship of the ring. The ring should come in for a clean and polish once a year.  Free resizing on the ring up to 2 sizes bigger or smaller.",
+		"price": 28175,
+		"certificate": null,
+		"box_image": "gd box.jpeg",
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "50% deposit then final payment prior to delivery."
+		},
+		"manufacturing_timeframe": "8 - 10 working days",
+		"delivery_timeframe": "24 - 48 hours",
+		"link": "https://grand-diamonds.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 5,
+			"num_reviews": 273,
+			"link": "https://www.google.com/search?q=grand+diamonds&rlz=1C1CHBF_enZA1076ZA1076&oq=grand+diamonds&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgYIAhBFGDwyBggDEEUYPTIGCAQQRRg80gEIMTc3M2owajSoAgCwAgA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "Cape Diamonds",
+		"dimaond": {
+			"carat_weight": 0.8,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "D",
+			"clarity": "VS1",
+			"file": { "type": null, "name": null }
+		},
+		"metal": "Platinum",
+		"engraving": true,
+		"warranty": "Life time manufacturing warranty on the side diamonds and the metal. It also incudes a free resizing and a free polish.",
+		"price": 26900,
+		"certificate": null,
+		"box": { "type": "photo", "file": "gd box.jpeg" },
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "50% deposit then final payment prior to delivery."
+		},
+		"manufacturing_timeframe": "4 - 5 weeks",
+		"delivery_timeframe": "",
+		"link": "https://www.capediamonds.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 5,
+			"num_reviews": 598,
+			"link": "https://www.google.com/search?q=cape+diamonds&rlz=1C1CHBF_enZA1076ZA1076&oq=cap&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIGCAMQRRg8MgYIBBBFGDwyBggFEEUYPTIGCAYQRRg8MgYIBxBFGDzSAQgxNjg3ajBqMagCALACAA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "Moissanite By Design",
+		"dimaond": {
+			"carat_weight": 0.9,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "F",
+			"clarity": "VS1",
+			"file": { "type": null, "name": null }
+		},
+		"metal": "18ct White Gold",
+		"engraving": true,
+		"warranty": "12 month warranty on workmanship.",
+		"price": 25620,
+		"certificate": null,
+		"box": { "type": null, "file": null },
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "50% deposit then final payment prior to delivery."
+		},
+		"manufacturing_timeframe": "3 - 4 weeks",
+		"delivery_timeframe": "",
+		"link": "https://moissanitebydesign.com/",
+		"reviews": {
+			"type": "Google",
+			"rating": 4.9,
+			"num_reviews": 36,
+			"link": "https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zMouyqg0NkkzYLRSNagwTElONk1LTDQwTzNMMjI2tjKoMLM0NbMwtDRNSjMwSU5MM_ISyc3PLC5OzMssSVVIqlRISS3OTM8DAFVtF2Y&q=moissanite+by+design&rlz=1C1CHBF_enZA1076ZA1076&oq=moiss&gs_lcrp=EgZjaHJvbWUqDwgBEC4YJxivARjHARiKBTIGCAAQRRg8Mg8IARAuGCcYrwEYxwEYigUyBggCEEUYOTIMCAMQABhDGLEDGIoFMgkIBBAAGEMYigUyCQgFEAAYQxiKBTIJCAYQABhDGIoFMgYIBxBFGDzSAQkxMTMyNmowajGoAgCwAgA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "Moissanite By Design",
+		"dimaond": {
+			"carat_weight": 0.9,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "F",
+			"clarity": "VS1",
+			"file": { "type": null, "name": null }
+		},
+		"metal": "Platinum",
+		"engraving": true,
+		"warranty": "12 month warranty on workmanship.",
+		"price": 27720,
+		"certificate": null,
+		"box": { "type": null, "file": null },
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "50% deposit then final payment prior to delivery."
+		},
+		"manufacturing_timeframe": "3 - 4 weeks",
+		"delivery_timeframe": "",
+		"link": "https://moissanitebydesign.com/",
+		"reviews": {
+			"type": "Google",
+			"rating": 4.9,
+			"num_reviews": 36,
+			"link": "https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zMouyqg0NkkzYLRSNagwTElONk1LTDQwTzNMMjI2tjKoMLM0NbMwtDRNSjMwSU5MM_ISyc3PLC5OzMssSVVIqlRISS3OTM8DAFVtF2Y&q=moissanite+by+design&rlz=1C1CHBF_enZA1076ZA1076&oq=moiss&gs_lcrp=EgZjaHJvbWUqDwgBEC4YJxivARjHARiKBTIGCAAQRRg8Mg8IARAuGCcYrwEYxwEYigUyBggCEEUYOTIMCAMQABhDGLEDGIoFMgkIBBAAGEMYigUyCQgFEAAYQxiKBTIJCAYQABhDGIoFMgYIBxBFGDzSAQkxMTMyNmowajGoAgCwAgA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "Mark Solomon Jewellers",
+		"dimaond": {
+			"carat_weight": 0.4,
+			"shape": "round",
+			"type": "natural",
+			"colour": "I",
+			"clarity": "VS1",
+			"file": { "type": null, "name": null }
+		},
+		"metal": "18ct White Gold",
+		"engraving": false,
+		"warranty": "",
+		"price": 28975,
+		"certificate": null,
+		"box": { "type": null, "file": null },
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": ""
+		},
+		"manufacturing_timeframe": "28 working days",
+		"delivery_timeframe": "",
+		"link": "https://marksolomonjewellers.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 4.7,
+			"num_reviews": 52,
+			"link": "https://www.google.com/search?gs_ssp=eJzj4tZP1zcsSSs0MigsMWC0UjWoMExJTjYzNzJJSjQ1MU20MLQyqDAxTrVItEgzTzMxMTVKMUry4slNLMpWKM7Pyc_NzwMAcvUToA&q=mark+solomon&rlz=1C1CHBF_enZA1076ZA1076&oq=mark+solomon&gs_lcrp=EgZjaHJvbWUqDQgBEC4YrwEYxwEYgAQyCggAEAAY4wIYgAQyDQgBEC4YrwEYxwEYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyDQgHEC4YrwEYxwEYgAQyBwgIEC4YgAQyBwgJEAAYgATSAQg0OTY3ajBqMagCALACAA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "Mark Solomon Jewellers",
+		"dimaond": {
+			"carat_weight": 0.4,
+			"shape": "round",
+			"type": "natural",
+			"colour": "I",
+			"clarity": "VS1",
+			"file": { "type": null, "name": null }
+		},
+		"metal": "18ct White Gold",
+		"engraving": false,
+		"warranty": "",
+		"price": 30875,
+		"certificate": null,
+		"box": { "type": null, "file": null },
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": ""
+		},
+		"manufacturing_timeframe": "28 working days",
+		"delivery_timeframe": "",
+		"link": "https://marksolomonjewellers.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 4.7,
+			"num_reviews": 52,
+			"link": "https://www.google.com/search?gs_ssp=eJzj4tZP1zcsSSs0MigsMWC0UjWoMExJTjYzNzJJSjQ1MU20MLQyqDAxTrVItEgzTzMxMTVKMUry4slNLMpWKM7Pyc_NzwMAcvUToA&q=mark+solomon&rlz=1C1CHBF_enZA1076ZA1076&oq=mark+solomon&gs_lcrp=EgZjaHJvbWUqDQgBEC4YrwEYxwEYgAQyCggAEAAY4wIYgAQyDQgBEC4YrwEYxwEYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyDQgHEC4YrwEYxwEYgAQyBwgIEC4YgAQyBwgJEAAYgATSAQg0OTY3ajBqMagCALACAA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
+		"retailer": "Manser Jewellery",
+		"dimaond": {
+			"carat_weight": 1,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "G",
+			"clarity": "VS1",
+			"file": { "type": null, "name": null }
+		},
+		"metal": "Platinum",
+		"engraving": false,
+		"warranty": "",
+		"price": 26200,
+		"certificate": null,
+		"box": { "type": null, "file": null },
+		"payment_terms": {
+			"options": ["EFT", "Credit Card"],
+			"terms": ""
+		},
+		"manufacturing_timeframe": "28 working days",
+		"delivery_timeframe": "",
+		"link": "https://marksolomonjewellers.co.za/",
+		"reviews": {
+			"type": "Hellopeter",
+			"rating": 5,
+			"num_reviews": 3,
+			"link": "https://www.hellopeter.com/manser-jewellery-design"
+		}
+	}
+]
