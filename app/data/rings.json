@@ -14,7 +14,7 @@
 		"warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
 		"price": 25895,
 		"certificate": "LG594312878",
-		"box_image": "srp box.jpg",
+		"box": { "type": "photo", "file": "srp box.jpg" },
 		"payment_terms": {
 			"options": [
 				"EFT",
@@ -52,7 +52,7 @@
 		"warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
 		"price": 30060,
 		"certificate": "LG594312878",
-		"box_image": "srp box.jpg",
+		"box": { "type": "photo", "file": "srp box.jpg" },
 		"payment_terms": {
 			"options": [
 				"EFT",
@@ -90,7 +90,7 @@
 		"warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
 		"price": 26860,
 		"certificate": "LG594312878",
-		"box_image": "srp box.jpg",
+		"box": { "type": "photo", "file": "srp box.jpg" },
 		"payment_terms": {
 			"options": [
 				"EFT",
@@ -128,7 +128,7 @@
 		"warranty": "Lifetime diamond guarantee.",
 		"price": 85350,
 		"certificate": null,
-		"box_image": null,
+		"box": { "type": null, "file": null },
 		"payment_terms": {
 			"options": ["Credit Card"],
 			"terms": "Full price"
@@ -158,7 +158,7 @@
 		"warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
 		"price": 35000,
 		"certificate": null,
-		"box_image": null,
+		"box": { "type": null, "file": null },
 		"payment_terms": {
 			"options": ["EFT", "Credit Card", "PayPal"],
 			"terms": "Agreed deposit then final payment prior to delivery."
@@ -188,7 +188,7 @@
 		"warranty": "Life time warranty on cleaning of the ring, 6 month warranty on any repairs needed, one free resize",
 		"price": 30000,
 		"certificate": null,
-		"box_image": "tdc box.jpg",
+		"box": { "type": "photo", "file": "tdc box.jpg" },
 		"payment_terms": {
 			"options": ["EFT", "Credit Card"],
 			"terms": "40% deposit then final payment prior to delivery or payment via a payment plan"
@@ -221,7 +221,7 @@
 		"warranty": "Life time warranty on cleaning of the ring, 6 month warranty on any repairs needed, one free resize",
 		"price": 33000,
 		"certificate": null,
-		"box_image": "tdc box.jpg",
+		"box": { "type": "photo", "file": "tdc box.jpg" },
 		"payment_terms": {
 			"options": ["EFT", "Credit Card"],
 			"terms": "40% deposit then final payment prior to delivery or payment via a payment plan"
@@ -251,7 +251,7 @@
 		"warranty": "Life time warranty on cleaning of the ring, 6 month warranty on any repairs needed, one free resize",
 		"price": 36000,
 		"certificate": null,
-		"box_image": "tdc box.jpg",
+		"box": { "type": "photo", "file": "tdc box.jpg" },
 		"payment_terms": {
 			"options": ["EFT", "Credit Card"],
 			"terms": "40% deposit then final payment prior to delivery or payment via a payment plan"
@@ -281,7 +281,7 @@
 		"warranty": "Warranty is on the workmanship of the ring. The ring should come in for a clean and polish once a year.  Free resizing on the ring up to 2 sizes bigger or smaller.",
 		"price": 26175,
 		"certificate": null,
-		"box_image": "gd box.jpeg",
+		"box": { "type": "photo", "file": "gd box.jpeg" },
 		"payment_terms": {
 			"options": ["EFT", "Credit Card"],
 			"terms": "50% deposit then final payment prior to delivery."
@@ -311,7 +311,7 @@
 		"warranty": "Warranty is on the workmanship of the ring. The ring should come in for a clean and polish once a year.  Free resizing on the ring up to 2 sizes bigger or smaller.",
 		"price": 28175,
 		"certificate": null,
-		"box_image": "gd box.jpeg",
+		"box": { "type": "photo", "file": "gd box.jpeg" },
 		"payment_terms": {
 			"options": ["EFT", "Credit Card"],
 			"terms": "50% deposit then final payment prior to delivery."
@@ -341,7 +341,7 @@
 		"warranty": "Life time manufacturing warranty on the side diamonds and the metal. It also incudes a free resizing and a free polish.",
 		"price": 26900,
 		"certificate": null,
-		"box": { "type": "photo", "file": "gd box.jpeg" },
+		"box": { "type": "video", "file": "cd box.mp4" },
 		"payment_terms": {
 			"options": ["EFT", "Credit Card"],
 			"terms": "50% deposit then final payment prior to delivery."
