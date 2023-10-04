@@ -12,7 +12,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" className="container mx-auto py-4">
 			<body>{children}</body>
 		</html>
 	);
