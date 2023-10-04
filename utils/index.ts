@@ -14,6 +14,18 @@ export const createUrl = (
 	return `${pathname}${queryString}`;
 };
 
-export const getItems = async () => {
+export const getItems = async (query?: string) => {
+	if (query?.length) {
+		const lowerQuery = query?.toLowerCase();
+		return data.filter(
+			(item) =>
+				item.retailer.toLowerCase().includes(lowerQuery) ||
+				item.metal.toLowerCase().includes(lowerQuery) ||
+				item.warranty.toLowerCase().includes(lowerQuery) ||
+				item.diamond.type.toLowerCase().includes(lowerQuery) ||
+				item.diamond.clarity.toLowerCase().includes(lowerQuery) ||
+				item.payment.terms.toLowerCase().includes(lowerQuery)
+		);
+	}
 	return data;
 };
