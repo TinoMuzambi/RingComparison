@@ -38,6 +38,82 @@
 		}
 	},
 	{
+		"retailer": "Shiny Rock Polished",
+		"dimaond": {
+			"carat_weight": 0.58,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "I",
+			"clarity": "VS1",
+			"file": { "type": "video", "name": "srp diamond.mp4" }
+		},
+		"metal": "Platinum",
+		"engraving": true,
+		"warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
+		"price": 30060,
+		"certificate": "LG594312878",
+		"box_image": "srp box.jpg",
+		"payment_terms": {
+			"options": [
+				"EFT",
+				"Credit Card",
+				"PayPal",
+				"Payflex",
+				"PayJustNow",
+				"Mobicred",
+				"Shiny Rock Payment Plan"
+			],
+			"terms": "Agreed deposit to secure diamonds then final payment prior to delivery or payment via a payment plan"
+		},
+		"manufacturing_timeframe": "4 weeks",
+		"delivery_timeframe": "2 - 4 working days",
+		"link": "https://shinyrockpolished.com/",
+		"reviews": {
+			"type": "Hellopeter",
+			"rating": 5,
+			"num_reviews": 8,
+			"link": "https://www.hellopeter.com/shiny-rock-polished"
+		}
+	},
+	{
+		"retailer": "Shiny Rock Polished",
+		"dimaond": {
+			"carat_weight": 0.81,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "D",
+			"clarity": "VS1",
+			"file": { "type": null, "name": null }
+		},
+		"metal": "Platinum",
+		"engraving": true,
+		"warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
+		"price": 26860,
+		"certificate": "LG594312878",
+		"box_image": "srp box.jpg",
+		"payment_terms": {
+			"options": [
+				"EFT",
+				"Credit Card",
+				"PayPal",
+				"Payflex",
+				"PayJustNow",
+				"Mobicred",
+				"Shiny Rock Payment Plan"
+			],
+			"terms": "Agreed deposit to secure diamonds then final payment prior to delivery or payment via a payment plan"
+		},
+		"manufacturing_timeframe": "4 weeks",
+		"delivery_timeframe": "2 - 4 working days",
+		"link": "https://shinyrockpolished.com/",
+		"reviews": {
+			"type": "Hellopeter",
+			"rating": 5,
+			"num_reviews": 8,
+			"link": "https://www.hellopeter.com/shiny-rock-polished"
+		}
+	},
+	{
 		"retailer": "Shimansky",
 		"dimaond": {
 			"carat_weight": 1.059,
@@ -352,7 +428,7 @@
 		},
 		"metal": "18ct White Gold",
 		"engraving": false,
-		"warranty": "",
+		"warranty": "12 month warranty on manufacturing faults.",
 		"price": 28975,
 		"certificate": null,
 		"box": { "type": null, "file": null },
@@ -382,7 +458,7 @@
 		},
 		"metal": "18ct White Gold",
 		"engraving": false,
-		"warranty": "",
+		"warranty": "12 month warranty on manufacturing faults.",
 		"price": 30875,
 		"certificate": null,
 		"box": { "type": null, "file": null },
@@ -403,24 +479,24 @@
 	{
 		"retailer": "Manser Jewellery",
 		"dimaond": {
-			"carat_weight": 1,
+			"carat_weight": 1.04,
 			"shape": "round",
 			"type": "lab grown",
 			"colour": "G",
 			"clarity": "VS1",
-			"file": { "type": null, "name": null }
+			"file": { "type": "video", "name": "manser diamond.mp4" }
 		},
 		"metal": "Platinum",
-		"engraving": false,
-		"warranty": "",
-		"price": 26200,
-		"certificate": null,
+		"engraving": true,
+		"warranty": "Lifetime warranty on stone dislodging",
+		"price": 30130,
+		"certificate": "LG589385548",
 		"box": { "type": null, "file": null },
 		"payment_terms": {
 			"options": ["EFT", "Credit Card"],
-			"terms": ""
+			"terms": "50% deposit then final payment prior to delivery."
 		},
-		"manufacturing_timeframe": "28 working days",
+		"manufacturing_timeframe": "3 - 4 weeks",
 		"delivery_timeframe": "",
 		"link": "https://marksolomonjewellers.co.za/",
 		"reviews": {
