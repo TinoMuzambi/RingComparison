@@ -1,42 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { createUrl } from "@/utils";
-import { useSearchParams, useRouter } from "next/navigation";
 
 import data from "./data/rings.json";
 
 export default function Home() {
-	const router = useRouter();
-	const searchParams = useSearchParams();
-
-	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-
-		const val = e.target as HTMLFormElement;
-		const search = val.search as HTMLInputElement;
-		const newParams = new URLSearchParams(searchParams.toString());
-
-		if (search.value) {
-			newParams.set("q", search.value);
-		} else {
-			newParams.delete("q");
-		}
-		router.push(createUrl("/", newParams));
-	};
 	return (
 		<main className="flex min-h-screen flex-col gap-4">
-			<h1 className="text-4xl font-bold">Comparisons</h1>
-			<form className="grid" onSubmit={onSubmit}>
-				<input
-					className="justify-self-end px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
-					type="search"
-					id="search"
-					placeholder="Search..."
-					defaultValue={searchParams?.get("q") || ""}
-				/>
-			</form>
-
 			<div
 				className="grid font-bold border-b pb-2"
 				style={{ gridTemplateColumns: "repeat(18, minmax(0, 1fr))" }}

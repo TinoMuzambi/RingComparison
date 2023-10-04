@@ -1,5 +1,7 @@
-import "./globals.css";
 import type { Metadata } from "next";
+import Navbar from "../components/layout/navbar";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
 	title: "Comparisons",
@@ -13,7 +15,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className="container mx-auto py-4">
-			<body>{children}</body>
+			<body>
+				<Navbar />
+				{children}
+			</body>
 		</html>
 	);
 }
