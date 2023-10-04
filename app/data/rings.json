@@ -427,9 +427,9 @@
 			"file": { "type": null, "name": null }
 		},
 		"metal": "18ct White Gold",
-		"engraving": false,
+		"engraving": true,
 		"warranty": "12 month warranty on manufacturing faults.",
-		"price": 28975,
+		"price": 30225,
 		"certificate": null,
 		"box": { "type": null, "file": null },
 		"payment": {
@@ -456,10 +456,10 @@
 			"clarity": "VS1",
 			"file": { "type": null, "name": null }
 		},
-		"metal": "18ct White Gold",
-		"engraving": false,
+		"metal": "Platinum",
+		"engraving": true,
 		"warranty": "12 month warranty on manufacturing faults.",
-		"price": 30875,
+		"price": 32125,
 		"certificate": null,
 		"box": { "type": null, "file": null },
 		"payment": {
