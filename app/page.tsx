@@ -1,13 +1,22 @@
-import data from "./data/rings.json";
 import Image from "next/image";
+
+import data from "./data/rings.json";
 
 export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col gap-4">
-			<h1>Comparisons</h1>
+			<h1 className="text-4xl font-bold">Comparisons</h1>
+			<form className="grid">
+				<input
+					className="justify-self-end px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
+					type="search"
+					id="search"
+					placeholder="Search..."
+				/>
+			</form>
 
 			<div
-				className="grid"
+				className="grid font-bold border-b pb-2"
 				style={{ gridTemplateColumns: "repeat(18, minmax(0, 1fr))" }}
 			>
 				<p>Retailer</p>
@@ -31,12 +40,12 @@ export default function Home() {
 			</div>
 			{data.map((item, key) => (
 				<div
-					className="grid gap-1"
+					className="grid gap-1 border-b py-2 last:border-none"
 					style={{ gridTemplateColumns: "repeat(18, minmax(0, 1fr))" }}
 					key={key}
 				>
 					<p>{item.retailer}</p>
-					<p>{item.diamond.carat_weight}</p>
+					<p>{item.diamond.carat_weight}ct</p>
 					<p>{item.diamond.type}</p>
 					<p>{item.diamond.colour}</p>
 					<p>{item.diamond.clarity}</p>
@@ -54,7 +63,14 @@ export default function Home() {
 					</div>
 					<p>{item.metal}</p>
 					<p>{item.engraving ? "Yes" : "No"}</p>
-					<p>{item.price}</p>
+					<p>
+						{Intl.NumberFormat("en-US", {
+							style: "currency",
+							currency: "ZAR",
+							maximumFractionDigits: 0,
+							currencyDisplay: "narrowSymbol",
+						}).format(item.price)}
+					</p>
 					<p>{item.warranty}</p>
 					<p>{item?.certificate}</p>
 					<div>
