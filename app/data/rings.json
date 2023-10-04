@@ -431,7 +431,7 @@
 		"warranty": "12 month warranty on manufacturing faults.",
 		"price": 30225,
 		"certificate": null,
-		"box": { "type": null, "file": null },
+		"box": { "type": "video", "file": "msj box.mp4" },
 		"payment": {
 			"options": ["EFT", "Credit Card"],
 			"terms": ""
@@ -461,7 +461,7 @@
 		"warranty": "12 month warranty on manufacturing faults.",
 		"price": 32125,
 		"certificate": null,
-		"box": { "type": null, "file": null },
+		"box": { "type": "video", "file": "msj box.mp4" },
 		"payment": {
 			"options": ["EFT", "Credit Card"],
 			"terms": ""
