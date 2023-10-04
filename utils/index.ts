@@ -2,7 +2,9 @@ import { ReadonlyURLSearchParams } from "next/navigation";
 import data from "@/data/rings.json";
 
 export const BASE_URL =
-	process.env.NODE_ENV === "development" ? "http://localhost:3000" : "";
+	process.env.NODE_ENV === "development"
+		? "http://localhost:3000"
+		: "https://comparison-psi.vercel.app";
 
 export const createUrl = (
 	pathname: string,
