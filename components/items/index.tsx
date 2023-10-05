@@ -4,8 +4,8 @@ import { ItemsInterface } from "@/interfaces";
 
 const Items: React.FC<ItemsInterface> = ({ items }) => {
 	return (
-		<div className="w-screen overflow-x-auto pr-16 py-2">
-			<table className="w-[300vw] border-collapse border-spacing-8">
+		<div className="overflow-x-auto pr-16 py-2">
+			<table className="w-[300vw] border-collapse border-spacing-8 text-center">
 				<thead className="font-bold border-b pb-2">
 					<tr>
 						<th className="p-2">Retailer</th>
@@ -70,11 +70,15 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 										src={`/media/${item.box?.file}`}
 										width={200}
 										height={200}
-										className=""
+										className="hover:scale-[2] transition"
 										alt={item.retailer}
 									/>
 								) : item.box?.type === "video" ? (
-									<video src={`/media/${item.box?.file}`} controls />
+									<video
+										width={200}
+										src={`/media/${item.box?.file}`}
+										controls
+									/>
 								) : null}
 							</td>
 							<td className="p-2">{item.payment.options.join(", ")}</td>
@@ -90,7 +94,7 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 								<a
 									href={item.reviews.link}
 									target="_blank"
-								>{`${item.reviews.num_reviews} ${item.reviews.type} reviews: ${item.reviews.rating}`}</a>
+								>{`${item.reviews.num_reviews} ${item.reviews.type} reviews of ${item.reviews.rating} stars`}</a>
 							</td>
 						</tr>
 					))}
