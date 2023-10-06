@@ -14,8 +14,6 @@ export default function Search() {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 
-	console.log(uniqueRetailers);
-
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
@@ -106,6 +104,8 @@ export default function Search() {
 					name="diamond-type"
 					id="diamond-type"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
+					onChange={(e) => filter("type", e.target.value)}
+					defaultValue={searchParams?.get("type") || ""}
 				>
 					<option value="select" selected>
 						Select diamond type
@@ -121,6 +121,8 @@ export default function Search() {
 					name="diamond-colour"
 					id="diamond-colour"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
+					onChange={(e) => filter("colour", e.target.value)}
+					defaultValue={searchParams?.get("colour") || ""}
 				>
 					<option value="select" selected>
 						Select diamond colour
@@ -136,6 +138,8 @@ export default function Search() {
 					name="diamond-clarity"
 					id="diamond-clarity"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
+					onChange={(e) => filter("clarity", e.target.value)}
+					defaultValue={searchParams?.get("clarity") || ""}
 				>
 					<option value="select" selected>
 						Select diamond clarity
@@ -151,6 +155,8 @@ export default function Search() {
 					name="metal"
 					id="metal"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
+					onChange={(e) => filter("metal", e.target.value)}
+					defaultValue={searchParams?.get("metal") || ""}
 				>
 					<option value="select" selected>
 						Select metal
