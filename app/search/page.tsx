@@ -1,4 +1,5 @@
 import Items from "@/components/items";
+import { Filter } from "@/interfaces";
 import { getItems } from "@/utils";
 
 export default async function SearchPage({
@@ -10,7 +11,7 @@ export default async function SearchPage({
 		[key: string]: string;
 	};
 
-	const filter = {
+	const filter: Filter = {
 		retailer: retailer === "select" ? null : retailer,
 		type: type === "select" ? null : type,
 		colour: colour === "select" ? null : colour,
