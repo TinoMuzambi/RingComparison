@@ -1,5 +1,6 @@
 import { ReadonlyURLSearchParams } from "next/navigation";
 import data from "@/data/rings.json";
+import { Filter } from "@/interfaces";
 
 export const BASE_URL =
 	process.env.NODE_ENV === "development"
@@ -16,20 +17,41 @@ export const createUrl = (
 	return `${pathname}${queryString}`;
 };
 
-export const getItems = async (
-	filter: {
-		retailer: string | null;
-		type: string | null;
-		colour: string | null;
-		clarity: string | null;
-		metal: string | null;
-	},
-	query?: string
-) => {
+const doFilter = (items: typeof data, filter: Filter): typeof data => {
 	const { retailer, type, colour, clarity, metal } = filter;
+
+	let filteredData = items;
+
+	if (retailer)
+		filteredData = filteredData.filter(
+			(item) => item.retailer.toLowerCase().replaceAll(" ", "-") === retailer
+		);
+	if (type)
+		filteredData = filteredData.filter(
+			(item) => item.diamond.type.toLowerCase().replaceAll(" ", "-") === type
+		);
+	if (colour)
+		filteredData = filteredData.filter(
+			(item) =>
+				item.diamond.colour.toLowerCase().replaceAll(" ", "-") === colour
+		);
+	if (clarity)
+		filteredData = filteredData.filter(
+			(item) =>
+				item.diamond.clarity.toLowerCase().replaceAll(" ", "-") === clarity
+		);
+	if (metal)
+		filteredData = filteredData.filter(
+			(item) => item.metal.toLowerCase().replaceAll(" ", "-") === metal
+		);
+
+	return filteredData;
+};
+
+export const getItems = async (filter: Filter, query?: string) => {
 	if (query?.length) {
 		const lowerQuery = query?.toLowerCase();
-		return data.filter(
+		const qData = data.filter(
 			(item) =>
 				item.retailer.toLowerCase().includes(lowerQuery) ||
 				item.metal.toLowerCase().includes(lowerQuery) ||
@@ -38,8 +60,11 @@ export const getItems = async (
 				item.diamond.clarity.toLowerCase().includes(lowerQuery) ||
 				item.payment.terms.toLowerCase().includes(lowerQuery)
 		);
+
+		return doFilter(qData, filter);
 	}
-	return data;
+
+	return doFilter(data, filter);
 };
 
 export const uniqueRetailers = [
