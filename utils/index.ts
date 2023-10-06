@@ -31,3 +31,19 @@ export const getItems = async (query?: string) => {
 	}
 	return data;
 };
+
+export const uniqueRetailers = [...new Set(data.map((item) => item.retailer))];
+
+export const uniqueDiamondTypes = [
+	...new Set(data.map((item) => item.diamond.type)),
+];
+
+export const uniqueDiamondColours = [
+	...new Set(data.map((item) => item.diamond.colour)),
+];
+
+export const uniqueDiamondClarities = [
+	...new Set(data.map((item) => item.diamond.clarity)),
+];
+
+export const uniqueMetals = [...new Set(data.map((item) => item.metal))];
