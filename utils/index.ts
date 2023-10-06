@@ -16,7 +16,17 @@ export const createUrl = (
 	return `${pathname}${queryString}`;
 };
 
-export const getItems = async (query?: string) => {
+export const getItems = async (
+	filter: {
+		retailer: string | null;
+		type: string | null;
+		colour: string | null;
+		clarity: string | null;
+		metal: string | null;
+	},
+	query?: string
+) => {
+	const { retailer, type, colour, clarity, metal } = filter;
 	if (query?.length) {
 		const lowerQuery = query?.toLowerCase();
 		return data.filter(
