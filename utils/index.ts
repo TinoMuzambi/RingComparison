@@ -40,7 +40,7 @@ export const uniqueDiamondTypes = [
 
 export const uniqueDiamondColours = [
 	...new Set(data.map((item) => item.diamond.colour)),
-];
+].sort((a, b) => a.localeCompare(b));
 
 export const uniqueDiamondClarities = [
 	...new Set(data.map((item) => item.diamond.clarity)),
