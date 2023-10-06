@@ -13,15 +13,15 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 						<th className="p-2">Diamond Type</th>
 						<th className="p-2">Diamond Colour</th>
 						<th className="p-2">Diamond Clarity</th>
-						<th className="p-2">Diamond</th>
 						<th className="p-2">Metal</th>
-						<th className="p-2">Engraving Included</th>
 						<th className="p-2">Price</th>
-						<th className="p-2">Warranty</th>
+						<th className="p-2">Diamond</th>
+						<th className="p-2">Engraving Included</th>
+						<th className="p-2 max-w-xs">Warranty</th>
 						<th className="p-2">Certificate Number</th>
 						<th className="p-2">Box</th>
-						<th className="p-2">Payment Options</th>
-						<th className="p-2">Payment Terms</th>
+						<th className="p-2 max-w-xs">Payment Options</th>
+						<th className="p-2 max-w-xs">Payment Terms</th>
 						<th className="p-2">Manufacturing Timeframe</th>
 						<th className="p-2">Delivery Timeframe</th>
 						<th className="p-2">Link</th>
@@ -36,6 +36,15 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 							<td className="p-2">{item.diamond.type}</td>
 							<td className="p-2">{item.diamond.colour}</td>
 							<td className="p-2">{item.diamond.clarity}</td>
+							<td className="p-2">{item.metal}</td>
+							<td className="p-2">
+								{Intl.NumberFormat("en-US", {
+									style: "currency",
+									currency: "ZAR",
+									maximumFractionDigits: 0,
+									currencyDisplay: "narrowSymbol",
+								}).format(item.price)}
+							</td>
 							<td className="p-2">
 								{item.diamond.file?.type === "photo" ? (
 									<Image
@@ -52,17 +61,8 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 									/>
 								) : null}
 							</td>
-							<td className="p-2">{item.metal}</td>
 							<td className="p-2">{item.engraving ? "Yes" : "No"}</td>
-							<td className="p-2">
-								{Intl.NumberFormat("en-US", {
-									style: "currency",
-									currency: "ZAR",
-									maximumFractionDigits: 0,
-									currencyDisplay: "narrowSymbol",
-								}).format(item.price)}
-							</td>
-							<td className="p-2">{item.warranty}</td>
+							<td className="p-2 max-w-xs">{item.warranty}</td>
 							<td className="p-2">{item?.certificate}</td>
 							<td className="p-2">
 								{item.box?.type === "photo" ? (
@@ -81,8 +81,10 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 									/>
 								) : null}
 							</td>
-							<td className="p-2">{item.payment.options.join(", ")}</td>
-							<td className="p-2">{item.payment.terms}</td>
+							<td className="p-2 max-w-xs">
+								{item.payment.options.join(", ")}
+							</td>
+							<td className="p-2 max-w-xs">{item.payment.terms}</td>
 							<td className="p-2">{item.manufacturing_timeframe}</td>
 							<td className="p-2">{item.delivery_timeframe}</td>
 							<td className="p-2">
