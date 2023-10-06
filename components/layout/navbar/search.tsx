@@ -16,7 +16,7 @@ export default function Search() {
 
 	console.log(uniqueRetailers);
 
-	function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		const val = e.target as HTMLFormElement;
@@ -30,7 +30,48 @@ export default function Search() {
 		}
 
 		router.push(createUrl("/search", newParams));
-	}
+	};
+
+	const filter = (
+		field: "retailer" | "type" | "colour" | "clarity" | "metal",
+		value: string
+	) => {
+		const newParams = new URLSearchParams(searchParams.toString());
+
+		if (field === "retailer") {
+			if (value !== "select") {
+				newParams.set("retailer", value);
+			} else {
+				newParams.delete("retailer");
+			}
+		} else if (field === "type") {
+			if (value !== "select") {
+				newParams.set("type", value);
+			} else {
+				newParams.delete("type");
+			}
+		} else if (field === "colour") {
+			if (value !== "select") {
+				newParams.set("colour", value);
+			} else {
+				newParams.delete("colour");
+			}
+		} else if (field === "clarity") {
+			if (value !== "select") {
+				newParams.set("clarity", value);
+			} else {
+				newParams.delete("clarity");
+			}
+		} else if (field === "metal") {
+			if (value !== "select") {
+				newParams.set("metal", value);
+			} else {
+				newParams.delete("metal");
+			}
+		}
+
+		router.push(createUrl("/search", newParams));
+	};
 
 	return (
 		<>
@@ -48,13 +89,15 @@ export default function Search() {
 					name="retailers"
 					id="retailers"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
+					onChange={(e) => filter("retailer", e.target.value)}
+					defaultValue={searchParams?.get("retailer") || ""}
 				>
 					<option value="select" selected>
 						Select retailer
 					</option>
 					{uniqueRetailers.map((item, key) => (
-						<option value={item} key={key}>
-							{item}
+						<option value={item.value} key={key}>
+							{item.label}
 						</option>
 					))}
 				</select>
@@ -68,8 +111,8 @@ export default function Search() {
 						Select diamond type
 					</option>
 					{uniqueDiamondTypes.map((item, key) => (
-						<option value={item} key={key}>
-							{item}
+						<option value={item.value} key={key}>
+							{item.label}
 						</option>
 					))}
 				</select>
@@ -83,8 +126,8 @@ export default function Search() {
 						Select diamond colour
 					</option>
 					{uniqueDiamondColours.map((item, key) => (
-						<option value={item} key={key}>
-							{item}
+						<option value={item.value} key={key}>
+							{item.label}
 						</option>
 					))}
 				</select>
@@ -98,8 +141,8 @@ export default function Search() {
 						Select diamond clarity
 					</option>
 					{uniqueDiamondClarities.map((item, key) => (
-						<option value={item} key={key}>
-							{item}
+						<option value={item.value} key={key}>
+							{item.label}
 						</option>
 					))}
 				</select>
@@ -113,8 +156,8 @@ export default function Search() {
 						Select metal
 					</option>
 					{uniqueMetals.map((item, key) => (
-						<option value={item} key={key}>
-							{item}
+						<option value={item.value} key={key}>
+							{item.label}
 						</option>
 					))}
 				</select>
