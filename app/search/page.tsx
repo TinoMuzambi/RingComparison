@@ -1,5 +1,5 @@
 import Items from "@/components/items";
-import { Filter } from "@/interfaces";
+import { Filter, SortField } from "@/interfaces";
 import { getItems } from "@/utils";
 
 export default async function SearchPage({
@@ -7,9 +7,10 @@ export default async function SearchPage({
 }: {
 	searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-	const { sort, q, retailer, type, colour, clarity, metal } = searchParams as {
-		[key: string]: string;
-	};
+	const { sort, dir, q, retailer, type, colour, clarity, metal } =
+		searchParams as {
+			[key: string]: string;
+		};
 
 	const filter: Filter = {
 		retailer: retailer === "select" ? null : retailer,
@@ -19,7 +20,12 @@ export default async function SearchPage({
 		metal: metal === "select" ? null : metal,
 	};
 
-	const items = await getItems(filter, q);
+	const items = await getItems(
+		filter,
+		q,
+		sort as SortField,
+		dir as "asc" | "desc"
+	);
 
 	return <Items items={items} />;
 }
