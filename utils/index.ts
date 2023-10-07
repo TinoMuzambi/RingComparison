@@ -1,6 +1,6 @@
 import { ReadonlyURLSearchParams } from "next/navigation";
 import data from "@/data/rings.json";
-import { Filter } from "@/interfaces";
+import { Filter, SortField } from "@/interfaces";
 
 export const BASE_URL =
 	process.env.NODE_ENV === "development"
@@ -48,7 +48,12 @@ const doFilter = (items: typeof data, filter: Filter): typeof data => {
 	return filteredData;
 };
 
-export const getItems = async (filter: Filter, query?: string) => {
+export const getItems = async (
+	filter: Filter,
+	query?: string,
+	sort?: SortField,
+	dir?: "asc" | "desc"
+): Promise<typeof data> => {
 	if (query?.length) {
 		const lowerQuery = query?.toLowerCase();
 		const qData = data.filter(
@@ -64,6 +69,16 @@ export const getItems = async (filter: Filter, query?: string) => {
 		return doFilter(qData, filter);
 	}
 
+	if (sort) {
+		if (sort === "retailer")
+			return dir === "asc"
+				? doFilter(data, filter).sort((a, b) =>
+						a.retailer.localeCompare(b.retailer)
+				  )
+				: doFilter(data, filter).sort((a, b) =>
+						b.retailer.localeCompare(a.retailer)
+				  );
+	}
 	return doFilter(data, filter);
 };
 
