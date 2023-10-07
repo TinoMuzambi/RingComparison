@@ -11,3 +11,13 @@ export type Filter = {
 	clarity: string | null;
 	metal: string | null;
 };
+
+export type FilterField = "retailer" | "type" | "colour" | "clarity" | "metal";
+
+export type SortField =
+	| "retailer"
+	| "carat-weight"
+	| "colour"
+	| "clarity"
+	| "price"
+	| "reviews";
