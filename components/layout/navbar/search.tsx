@@ -88,11 +88,9 @@ export default function Search() {
 					id="retailers"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
 					onChange={(e) => filter("retailer", e.target.value)}
-					defaultValue={searchParams?.get("retailer") || ""}
+					defaultValue={searchParams?.get("retailer") || "select"}
 				>
-					<option value="select" selected>
-						Select retailer
-					</option>
+					<option value="select">Select retailer</option>
 					{uniqueRetailers.map((item, key) => (
 						<option value={item.value} key={key}>
 							{item.label}
@@ -105,11 +103,9 @@ export default function Search() {
 					id="diamond-type"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
 					onChange={(e) => filter("type", e.target.value)}
-					defaultValue={searchParams?.get("type") || ""}
+					defaultValue={searchParams?.get("type") || "select"}
 				>
-					<option value="select" selected>
-						Select diamond type
-					</option>
+					<option value="select">Select diamond type</option>
 					{uniqueDiamondTypes.map((item, key) => (
 						<option value={item.value} key={key}>
 							{item.label}
@@ -122,11 +118,9 @@ export default function Search() {
 					id="diamond-colour"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
 					onChange={(e) => filter("colour", e.target.value)}
-					defaultValue={searchParams?.get("colour") || ""}
+					defaultValue={searchParams?.get("colour") || "select"}
 				>
-					<option value="select" selected>
-						Select diamond colour
-					</option>
+					<option value="select">Select diamond colour</option>
 					{uniqueDiamondColours.map((item, key) => (
 						<option value={item.value} key={key}>
 							{item.label}
@@ -139,11 +133,9 @@ export default function Search() {
 					id="diamond-clarity"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
 					onChange={(e) => filter("clarity", e.target.value)}
-					defaultValue={searchParams?.get("clarity") || ""}
+					defaultValue={searchParams?.get("clarity") || "select"}
 				>
-					<option value="select" selected>
-						Select diamond clarity
-					</option>
+					<option value="select">Select diamond clarity</option>
 					{uniqueDiamondClarities.map((item, key) => (
 						<option value={item.value} key={key}>
 							{item.label}
@@ -156,11 +148,9 @@ export default function Search() {
 					id="metal"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black"
 					onChange={(e) => filter("metal", e.target.value)}
-					defaultValue={searchParams?.get("metal") || ""}
+					defaultValue={searchParams?.get("metal") || "select"}
 				>
-					<option value="select" selected>
-						Select metal
-					</option>
+					<option value="select">Select metal</option>
 					{uniqueMetals.map((item, key) => (
 						<option value={item.value} key={key}>
 							{item.label}
