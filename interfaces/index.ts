@@ -54,7 +54,7 @@ export const sortFields = [
 		label: "Colour - Best to worst",
 	},
 	{
-		field: "Clarity",
+		field: "clarity",
 		direction: "asc",
 		label: "Clarity - Worst to best",
 	},
