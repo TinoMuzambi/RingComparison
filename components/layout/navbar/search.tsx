@@ -176,13 +176,18 @@ export default function Search() {
 					id="sort"
 					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black my-2"
 					defaultValue={
-						`${searchParams?.get("sort")}-${searchParams?.get("dir")}` ||
+						`${searchParams?.get("sort")}:${searchParams?.get("dir")}` ||
 						"select"
 					}
+					onChange={(e) => {
+						const value = e.target.value.split(":");
+
+						sort(value[0] as SortField, value[1] as "asc" | "desc");
+					}}
 				>
 					<option value="select">Order by</option>
 					{sortFields.map((field, key) => (
-						<option key={key} value={`${field.field}-${field.direction}`}>
+						<option key={key} value={`${field.field}:${field.direction}`}>
 							{field.label}
 						</option>
 					))}
