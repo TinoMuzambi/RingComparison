@@ -1,5 +1,7 @@
 "use client";
+import { useRouter, useSearchParams } from "next/navigation";
 
+import { FilterField, SortField } from "@/interfaces";
 import {
 	createUrl,
 	uniqueDiamondClarities,
@@ -8,7 +10,6 @@ import {
 	uniqueMetals,
 	uniqueRetailers,
 } from "@/utils";
-import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Search() {
 	const router = useRouter();
@@ -30,10 +31,7 @@ export default function Search() {
 		router.push(createUrl("/search", newParams));
 	};
 
-	const filter = (
-		field: "retailer" | "type" | "colour" | "clarity" | "metal",
-		value: string
-	) => {
+	const filter = (field: FilterField, value: string) => {
 		const newParams = new URLSearchParams(searchParams.toString());
 
 		if (field === "retailer") {
@@ -67,6 +65,15 @@ export default function Search() {
 				newParams.delete("metal");
 			}
 		}
+
+		router.push(createUrl("/search", newParams));
+	};
+
+	const sort = (field: SortField, direction: "asc" | "desc") => {
+		const newParams = new URLSearchParams(searchParams.toString());
+
+		newParams.set("sort", field);
+		newParams.set("dir", direction);
 
 		router.push(createUrl("/search", newParams));
 	};
