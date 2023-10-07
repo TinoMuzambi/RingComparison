@@ -84,3 +84,17 @@ export const sortFields = [
 		label: "Reviews - High to low",
 	},
 ];
+
+export const giaClarityScale = [
+	"FL",
+	"IF",
+	"VVS1",
+	"VVS2",
+	"VS1",
+	"VS2",
+	"SI1",
+	"SI2",
+	"I1",
+	"I2",
+	"I3",
+];
