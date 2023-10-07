@@ -21,3 +21,66 @@ export type SortField =
 	| "clarity"
 	| "price"
 	| "reviews";
+
+export const sortFields = [
+	{
+		field: "retailer",
+		direction: "asc",
+		label: "Retailer - Ascending",
+	},
+	{
+		field: "retailer",
+		direction: "desc",
+		label: "Retailer - Descending",
+	},
+	{
+		field: "carat-weight",
+		direction: "asc",
+		label: "Carat Weight - Low to high",
+	},
+	{
+		field: "carat-weight",
+		direction: "desc",
+		label: "Carat Weight - High to low",
+	},
+	{
+		field: "colour",
+		direction: "asc",
+		label: "Colour - Worst to best",
+	},
+	{
+		field: "colour",
+		direction: "desc",
+		label: "Colour - Best to worst",
+	},
+	{
+		field: "Clarity",
+		direction: "asc",
+		label: "Clarity - Worst to best",
+	},
+	{
+		field: "clarity",
+		direction: "desc",
+		label: "Clarity - Best to worst",
+	},
+	{
+		field: "price",
+		direction: "asc",
+		label: "Price - Low to high",
+	},
+	{
+		field: "price",
+		direction: "desc",
+		label: "Price - High to low",
+	},
+	{
+		field: "reviews",
+		direction: "asc",
+		label: "Reviews - Low to high",
+	},
+	{
+		field: "reviews",
+		direction: "desc",
+		label: "Reviews - High to low",
+	},
+];
