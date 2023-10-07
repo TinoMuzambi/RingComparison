@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { FilterField, SortField } from "@/interfaces";
+import { FilterField, SortField, sortFields } from "@/interfaces";
 import {
 	createUrl,
 	uniqueDiamondClarities,
@@ -69,11 +69,16 @@ export default function Search() {
 		router.push(createUrl("/search", newParams));
 	};
 
-	const sort = (field: SortField, direction: "asc" | "desc") => {
+	const sort = (field: SortField | "select", direction: "asc" | "desc") => {
 		const newParams = new URLSearchParams(searchParams.toString());
 
-		newParams.set("sort", field);
-		newParams.set("dir", direction);
+		if (field !== "select") {
+			newParams.set("sort", field);
+			newParams.set("dir", direction);
+		} else {
+			newParams.delete("sort");
+			newParams.delete("dir");
+		}
 
 		router.push(createUrl("/search", newParams));
 	};
@@ -161,6 +166,24 @@ export default function Search() {
 					{uniqueMetals.map((item, key) => (
 						<option value={item.value} key={key}>
 							{item.label}
+						</option>
+					))}
+				</select>
+			</div>
+			<div>
+				<select
+					name="sort"
+					id="sort"
+					className="px-2 py-1 rounded outline-none hover:scale-95 focus:scale-95 transition text-black my-2"
+					defaultValue={
+						`${searchParams?.get("sort")}-${searchParams?.get("dir")}` ||
+						"select"
+					}
+				>
+					<option value="select">Order by</option>
+					{sortFields.map((field, key) => (
+						<option key={key} value={`${field.field}-${field.direction}`}>
+							{field.label}
 						</option>
 					))}
 				</select>
