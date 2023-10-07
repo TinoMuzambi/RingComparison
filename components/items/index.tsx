@@ -52,6 +52,7 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 										width={200}
 										height={200}
 										alt={item.retailer}
+										loading="eager"
 									/>
 								) : item.diamond.file?.type === "video" ? (
 									<video
@@ -72,6 +73,7 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 										height={200}
 										className="hover:scale-[2] transition"
 										alt={item.retailer}
+										loading="eager"
 									/>
 								) : item.box?.type === "video" ? (
 									<video
