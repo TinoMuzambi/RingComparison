@@ -48,6 +48,19 @@ const doFilter = (items: typeof data, filter: Filter): typeof data => {
 	return filteredData;
 };
 
+const doSort = (
+	items: typeof data,
+	sort: SortField,
+	dir: "asc" | "desc"
+): typeof data => {
+	if (sort === "retailer")
+		return dir === "asc"
+			? items.sort((a, b) => a.retailer.localeCompare(b.retailer))
+			: items.sort((a, b) => b.retailer.localeCompare(a.retailer));
+
+	return items;
+};
+
 export const getItems = async (
 	filter: Filter,
 	query?: string,
@@ -69,16 +82,10 @@ export const getItems = async (
 		return doFilter(qData, filter);
 	}
 
-	if (sort) {
-		if (sort === "retailer")
-			return dir === "asc"
-				? doFilter(data, filter).sort((a, b) =>
-						a.retailer.localeCompare(b.retailer)
-				  )
-				: doFilter(data, filter).sort((a, b) =>
-						b.retailer.localeCompare(a.retailer)
-				  );
+	if (sort && dir) {
+		return doSort(doFilter(data, filter), sort, dir);
 	}
+
 	return doFilter(data, filter);
 };
 
