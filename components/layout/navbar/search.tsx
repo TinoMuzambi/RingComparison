@@ -82,7 +82,7 @@ export default function Search() {
 					defaultValue={searchParams?.get("q") || ""}
 				/>
 			</form>
-			<div className="flex gap-4">
+			<div className="flex gap-4 overflow-x-auto">
 				<select
 					name="retailers"
 					id="retailers"
