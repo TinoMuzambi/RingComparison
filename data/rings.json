@@ -357,6 +357,36 @@
 		}
 	},
 	{
+		"retailer": "Cape Diamonds",
+		"diamond": {
+			"carat_weight": 0.81,
+			"shape": "round",
+			"type": "lab grown",
+			"colour": "D",
+			"clarity": "VS1",
+			"file": { "type": "photo", "name": "cd diamond.jpg" }
+		},
+		"metal": "Platinum",
+		"engraving": true,
+		"warranty": "Life time manufacturing warranty on the side diamonds and the metal. It also incudes a free resizing and a free polish.",
+		"price": 26800,
+		"certificate": "LG589380735",
+		"box": { "type": "video", "file": "cd box.mp4" },
+		"payment": {
+			"options": ["EFT", "Credit Card"],
+			"terms": "50% deposit then final payment prior to delivery."
+		},
+		"manufacturing_timeframe": "4 - 5 weeks",
+		"delivery_timeframe": "",
+		"link": "https://www.capediamonds.co.za/",
+		"reviews": {
+			"type": "Google",
+			"rating": 5,
+			"num_reviews": 598,
+			"link": "https://www.google.com/search?q=cape+diamonds&rlz=1C1CHBF_enZA1076ZA1076&oq=cap&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIGCAMQRRg8MgYIBBBFGDwyBggFEEUYPTIGCAYQRRg8MgYIBxBFGDzSAQgxNjg3ajBqMagCALACAA&sourceid=chrome&ie=UTF-8"
+		}
+	},
+	{
 		"retailer": "Moissanite By Design",
 		"diamond": {
 			"carat_weight": 0.9,
