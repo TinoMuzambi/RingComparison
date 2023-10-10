@@ -1,6 +1,6 @@
 import { ReadonlyURLSearchParams } from "next/navigation";
 import data from "@/data/rings.json";
-import { Filter, SortField } from "@/interfaces";
+import { Filter, SortField, giaClarityScale } from "@/interfaces";
 
 export const BASE_URL =
 	process.env.NODE_ENV === "development"
@@ -54,9 +54,43 @@ const doSort = (
 	dir: "asc" | "desc"
 ): typeof data => {
 	if (sort === "retailer")
-		return dir === "asc"
-			? items.sort((a, b) => a.retailer.localeCompare(b.retailer))
-			: items.sort((a, b) => b.retailer.localeCompare(a.retailer));
+		return items.sort((a, b) =>
+			dir === "asc"
+				? a.retailer.localeCompare(b.retailer)
+				: b.retailer.localeCompare(a.retailer)
+		);
+	else if (sort === "carat-weight")
+		return items.sort((a, b) =>
+			dir === "asc"
+				? a.diamond.carat_weight - b.diamond.carat_weight
+				: b.diamond.carat_weight - a.diamond.carat_weight
+		);
+	else if (sort === "colour")
+		return items.sort((a, b) =>
+			dir === "asc"
+				? b.diamond.colour.localeCompare(a.diamond.colour)
+				: a.diamond.colour.localeCompare(b.diamond.colour)
+		);
+	else if (sort === "clarity")
+		return items.sort((a, b) =>
+			dir === "asc"
+				? giaClarityScale.indexOf(b.diamond.clarity) -
+				  giaClarityScale.indexOf(a.diamond.clarity)
+				: giaClarityScale.indexOf(a.diamond.clarity) -
+				  giaClarityScale.indexOf(b.diamond.clarity)
+		);
+	else if (sort === "price")
+		return items.sort((a, b) =>
+			dir === "asc" ? a.price - b.price : b.price - a.price
+		);
+	else if (sort === "reviews")
+		return items.sort((a, b) =>
+			dir === "asc"
+				? a.reviews.rating * a.reviews.num_reviews -
+				  b.reviews.rating * b.reviews.num_reviews
+				: b.reviews.rating * b.reviews.num_reviews -
+				  a.reviews.rating * a.reviews.num_reviews
+		);
 
 	return items;
 };
@@ -78,6 +112,10 @@ export const getItems = async (
 				item.diamond.clarity.toLowerCase().includes(lowerQuery) ||
 				item.payment.terms.toLowerCase().includes(lowerQuery)
 		);
+
+		if (sort && dir) {
+			return doSort(doFilter(qData, filter), sort, dir);
+		}
 
 		return doFilter(qData, filter);
 	}
