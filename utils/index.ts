@@ -1,15 +1,14 @@
 import { ReadonlyURLSearchParams } from "next/navigation";
 import engagementRingsData from "@/data/rings.json";
 import weddingBandsData from "@/data/wedding-bands.json";
-import { Filter, SortField, giaClarityScale } from "@/interfaces";
+import {
+  Filter,
+  SortField,
+  giaClarityScale,
+  RingDataArray,
+} from "@/interfaces";
 
 export type RingType = "engagement" | "wedding-band";
-
-// Union type that represents both engagement rings and wedding bands data
-type RingData =
-  | (typeof engagementRingsData)[number]
-  | (typeof weddingBandsData)[number];
-type RingDataArray = RingData[];
 
 export const BASE_URL =
   process.env.NODE_ENV === "development"

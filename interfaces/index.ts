@@ -1,7 +1,14 @@
-import data from "@/data/rings.json";
+import engagementRingsData from "@/data/rings.json";
+import weddingBandsData from "@/data/wedding-bands.json";
+
+// Union type that represents both engagement rings and wedding bands data
+export type RingData =
+	| (typeof engagementRingsData)[number]
+	| (typeof weddingBandsData)[number];
+export type RingDataArray = RingData[];
 
 export interface ItemsInterface {
-	items: typeof data;
+	items: RingDataArray;
 }
 
 export type Filter = {
