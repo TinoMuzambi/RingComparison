@@ -1,16 +1,19 @@
 import Items from "@/components/items";
 import { Filter, SortField } from "@/interfaces";
-import { getItems } from "@/utils";
+import { getItems, RingType } from "@/utils";
 
 export default async function SearchPage({
 	searchParams,
 }: {
 	searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-	const { sort, dir, q, retailer, type, colour, clarity, metal } =
+	const { sort, dir, q, retailer, type, colour, clarity, metal, ringType } =
 		searchParams as {
 			[key: string]: string;
 		};
+
+	const selectedRingType =
+		(ringType as RingType) || ("engagement" as RingType);
 
 	const filter: Filter = {
 		retailer: retailer === "select" ? null : retailer,
@@ -24,7 +27,8 @@ export default async function SearchPage({
 		filter,
 		q,
 		sort as SortField,
-		dir as "asc" | "desc"
+		dir as "asc" | "desc",
+		selectedRingType
 	);
 
 	return <Items items={items} />;

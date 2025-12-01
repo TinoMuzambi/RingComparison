@@ -1,6 +1,9 @@
 import { ReadonlyURLSearchParams } from "next/navigation";
-import data from "@/data/rings.json";
+import engagementRingsData from "@/data/rings.json";
+import weddingBandsData from "@/data/wedding-bands.json";
 import { Filter, SortField, giaClarityScale } from "@/interfaces";
+
+export type RingType = "engagement" | "wedding-band";
 
 export const BASE_URL =
 	process.env.NODE_ENV === "development"
@@ -17,7 +20,14 @@ export const createUrl = (
 	return `${pathname}${queryString}`;
 };
 
-const doFilter = (items: typeof data, filter: Filter): typeof data => {
+const getData = (ringType: RingType = "engagement") => {
+	return ringType === "engagement" ? engagementRingsData : weddingBandsData;
+};
+
+const doFilter = (
+	items: typeof engagementRingsData,
+	filter: Filter
+): typeof engagementRingsData => {
 	const { retailer, type, colour, clarity, metal } = filter;
 
 	let filteredData = items;
@@ -49,10 +59,10 @@ const doFilter = (items: typeof data, filter: Filter): typeof data => {
 };
 
 const doSort = (
-	items: typeof data,
+	items: typeof engagementRingsData,
 	sort: SortField,
 	dir: "asc" | "desc"
-): typeof data => {
+): typeof engagementRingsData => {
 	if (sort === "retailer")
 		return items.sort((a, b) =>
 			dir === "asc"
@@ -99,8 +109,11 @@ export const getItems = async (
 	filter: Filter,
 	query?: string,
 	sort?: SortField,
-	dir?: "asc" | "desc"
-): Promise<typeof data> => {
+	dir?: "asc" | "desc",
+	ringType: RingType = "engagement"
+): Promise<typeof engagementRingsData> => {
+	const data = getData(ringType);
+
 	if (query?.length) {
 		const lowerQuery = query?.toLowerCase();
 		const qData = data.filter(
@@ -127,49 +140,65 @@ export const getItems = async (
 	return doFilter(data, filter);
 };
 
-export const uniqueRetailers = [
-	...new Set(data.map((item) => item.retailer)),
-].map((item) => {
-	return {
-		label: item,
-		value: item.toLowerCase().replaceAll(" ", "-"),
-	};
-});
-
-export const uniqueDiamondTypes = [
-	...new Set(data.map((item) => item.diamond.type)),
-].map((item) => {
-	return {
-		label: item,
-		value: item.toLowerCase().replaceAll(" ", "-"),
-	};
-});
-
-export const uniqueDiamondColours = [
-	...new Set(data.map((item) => item.diamond.colour)),
-]
-	.sort((a, b) => a.localeCompare(b))
-	.map((item) => {
+export const getUniqueRetailers = (ringType: RingType = "engagement") => {
+	const data = getData(ringType);
+	return [...new Set(data.map((item) => item.retailer))].map((item) => {
 		return {
 			label: item,
 			value: item.toLowerCase().replaceAll(" ", "-"),
 		};
 	});
+};
 
-export const uniqueDiamondClarities = [
-	...new Set(data.map((item) => item.diamond.clarity)),
-].map((item) => {
-	return {
-		label: item,
-		value: item.toLowerCase().replaceAll(" ", "-"),
-	};
-});
-
-export const uniqueMetals = [...new Set(data.map((item) => item.metal))].map(
-	(item) => {
+export const getUniqueDiamondTypes = (ringType: RingType = "engagement") => {
+	const data = getData(ringType);
+	return [...new Set(data.map((item) => item.diamond.type))].map((item) => {
 		return {
 			label: item,
 			value: item.toLowerCase().replaceAll(" ", "-"),
 		};
-	}
-);
+	});
+};
+
+export const getUniqueDiamondColours = (ringType: RingType = "engagement") => {
+	const data = getData(ringType);
+	return [...new Set(data.map((item) => item.diamond.colour))]
+		.sort((a, b) => a.localeCompare(b))
+		.map((item) => {
+			return {
+				label: item,
+				value: item.toLowerCase().replaceAll(" ", "-"),
+			};
+		});
+};
+
+export const getUniqueDiamondClarities = (
+	ringType: RingType = "engagement"
+) => {
+	const data = getData(ringType);
+	return [...new Set(data.map((item) => item.diamond.clarity))].map(
+		(item) => {
+			return {
+				label: item,
+				value: item.toLowerCase().replaceAll(" ", "-"),
+			};
+		}
+	);
+};
+
+export const getUniqueMetals = (ringType: RingType = "engagement") => {
+	const data = getData(ringType);
+	return [...new Set(data.map((item) => item.metal))].map((item) => {
+		return {
+			label: item,
+			value: item.toLowerCase().replaceAll(" ", "-"),
+		};
+	});
+};
+
+// Legacy exports for backward compatibility (default to engagement rings)
+export const uniqueRetailers = getUniqueRetailers("engagement");
+export const uniqueDiamondTypes = getUniqueDiamondTypes("engagement");
+export const uniqueDiamondColours = getUniqueDiamondColours("engagement");
+export const uniqueDiamondClarities = getUniqueDiamondClarities("engagement");
+export const uniqueMetals = getUniqueMetals("engagement");

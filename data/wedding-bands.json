@@ -1,0 +1,40 @@
+[
+  {
+    "retailer": "Shiny Rock Polished",
+    "diamond": {
+      "carat_weight": 0.58,
+      "shape": "round",
+      "type": "lab grown",
+      "colour": "I",
+      "clarity": "VS1",
+      "file": { "type": "video", "name": "srp diamond.mp4" }
+    },
+    "metal": "18ct White Gold",
+    "engraving": true,
+    "warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
+    "price": 25895,
+    "certificate": "LG594312878",
+    "box": { "type": "photo", "file": "srp box.jpg" },
+    "payment": {
+      "options": [
+        "EFT",
+        "Credit Card",
+        "PayPal",
+        "Payflex",
+        "PayJustNow",
+        "Mobicred",
+        "Shiny Rock Payment Plan"
+      ],
+      "terms": "Agreed deposit to secure diamonds then final payment prior to delivery or payment via a payment plan"
+    },
+    "manufacturing_timeframe": "4 weeks",
+    "delivery_timeframe": "2 - 4 working days",
+    "link": "https://shinyrockpolished.com/",
+    "reviews": {
+      "type": "Hellopeter",
+      "rating": 5,
+      "num_reviews": 8,
+      "link": "https://www.hellopeter.com/shiny-rock-polished"
+    }
+  }
+]

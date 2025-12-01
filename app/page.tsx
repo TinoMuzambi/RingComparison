@@ -1,8 +1,15 @@
 import Items from "@/components/items";
 import { Filter } from "@/interfaces";
-import { getItems } from "@/utils";
+import { getItems, RingType } from "@/utils";
 
-export default async function Home() {
+export default async function Home({
+	searchParams,
+}: {
+	searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+	const ringType =
+		(searchParams?.ringType as RingType) || ("engagement" as RingType);
+
 	const filter: Filter = {
 		retailer: null,
 		type: null,
@@ -11,7 +18,7 @@ export default async function Home() {
 		metal: null,
 	};
 
-	const data = await getItems(filter);
+	const data = await getItems(filter, undefined, undefined, undefined, ringType);
 
 	return (
 		<main className="flex min-h-screen flex-col gap-4">
