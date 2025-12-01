@@ -70,11 +70,17 @@ const doSort = (
 				: b.retailer.localeCompare(a.retailer)
 		);
 	else if (sort === "carat-weight")
-		return items.sort((a, b) =>
-			dir === "asc"
-				? a.diamond.carat_weight - b.diamond.carat_weight
-				: b.diamond.carat_weight - a.diamond.carat_weight
-		);
+		return items.sort((a, b) => {
+			const aWeight = a.diamond.carat_weight;
+			const bWeight = b.diamond.carat_weight;
+			
+			// Handle null values: nulls go to the end when ascending, beginning when descending
+			if (aWeight === null && bWeight === null) return 0;
+			if (aWeight === null) return dir === "asc" ? 1 : -1;
+			if (bWeight === null) return dir === "asc" ? -1 : 1;
+			
+			return dir === "asc" ? aWeight - bWeight : bWeight - aWeight;
+		});
 	else if (sort === "colour")
 		return items.sort((a, b) =>
 			dir === "asc"

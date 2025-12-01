@@ -32,7 +32,11 @@ const Items: React.FC<ItemsInterface> = ({ items }) => {
 					{items.map((item, key) => (
 						<tr className="border-b py-2 last:border-none" key={key}>
 							<td className="py-2">{item.retailer}</td>
-							<td className="py-2">{item.diamond.carat_weight}ct</td>
+							<td className="py-2">
+								{item.diamond.carat_weight !== null
+									? `${item.diamond.carat_weight}ct`
+									: "N/A"}
+							</td>
 							<td className="py-2">{item.diamond.type}</td>
 							<td className="py-2">{item.diamond.colour}</td>
 							<td className="py-2">{item.diamond.clarity}</td>
