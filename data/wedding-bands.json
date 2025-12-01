@@ -1,20 +1,79 @@
 [
   {
-    "retailer": "Shiny Rock Polished",
+    "retailer": "Mark Solomon Jewellers",
     "diamond": {
-      "carat_weight": 0.58,
+      "carat_weight": null,
+      "shape": "round",
+      "type": "natural",
+      "colour": "I",
+      "clarity": "VS-SI",
+      "file": { "type": null, "name": null }
+    },
+    "metal": "Platinum",
+    "engraving": true,
+    "warranty": "12 month warranty on manufacturing faults.",
+    "price": 39250,
+    "certificate": null,
+    "box": { "type": null, "file": null },
+    "payment": {
+      "options": ["EFT", "Credit Card"],
+      "terms": "50% deposit to begin the manufacturing process, with the balance due on collection and completion of the ring."
+    },
+    "manufacturing_timeframe": "3 weeks",
+    "delivery_timeframe": "",
+    "link": "https://marksolomonjewellers.co.za/",
+    "reviews": {
+      "type": "Google",
+      "rating": 4.7,
+      "num_reviews": 52,
+      "link": "https://www.google.com/search?gs_ssp=eJzj4tZP1zcsSSs0MigsMWC0UjWoMExJTjYzNzJJSjQ1MU20MLQyqDAxTrVItEgzTzMxMTVKMUry4slNLMpWKM7Pyc_NzwMAcvUToA&q=mark+solomon&rlz=1C1CHBF_enZA1076ZA1076&oq=mark+solomon&gs_lcrp=EgZjaHJvbWUqDQgBEC4YrwEYxwEYgAQyCggAEAAY4wIYgAQyDQgBEC4YrwEYxwEYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyDQgHEC4YrwEYxwEYgAQyBwgIEC4YgAQyBwgJEAAYgATSAQg0OTY3ajBqMagCALACAA&sourceid=chrome&ie=UTF-8"
+    }
+  },
+  {
+    "retailer": "Cape Diamonds",
+    "diamond": {
+      "carat_weight": null,
       "shape": "round",
       "type": "lab grown",
-      "colour": "I",
-      "clarity": "VS1",
-      "file": { "type": "video", "name": "srp diamond.mp4" }
+      "colour": "H",
+      "clarity": "VS-SI",
+      "file": { "type": null, "name": null }
     },
-    "metal": "18ct White Gold",
+    "metal": "Platinum",
+    "engraving": true,
+    "warranty": "Life time manufacturing warranty on the side diamonds and the metal. It also incudes a free resizing and a free polish.",
+    "price": 14550,
+    "certificate": null,
+    "payment": {
+      "options": ["EFT", "Credit Card"],
+      "terms": "50% deposit to begin the manufacturing process, with the balance due on collection and completion of the ring."
+    },
+    "manufacturing_timeframe": "4 - 5 weeks",
+    "delivery_timeframe": "",
+    "link": "https://www.capediamonds.co.za/",
+    "reviews": {
+      "type": "Google",
+      "rating": 5,
+      "num_reviews": 598,
+      "link": "https://www.google.com/search?q=cape+diamonds&rlz=1C1CHBF_enZA1076ZA1076&oq=cap&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIGCAMQRRg8MgYIBBBFGDwyBggFEEUYPTIGCAYQRRg8MgYIBxBFGDzSAQgxNjg3ajBqMagCALACAA&sourceid=chrome&ie=UTF-8"
+    }
+  },
+  {
+    "retailer": "Shiny Rock Polished",
+    "diamond": {
+      "carat_weight": null,
+      "shape": "round",
+      "type": "lab grown",
+      "colour": "H",
+      "clarity": "VS-SI",
+      "file": { "type": null, "name": null }
+    },
+    "metal": "Platinum",
     "engraving": true,
     "warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
-    "price": 25895,
-    "certificate": "LG594312878",
-    "box": { "type": "photo", "file": "srp box.jpg" },
+    "price": 16000,
+    "certificate": null,
+    "box": { "type": null, "file": null },
     "payment": {
       "options": [
         "EFT",
@@ -35,6 +94,104 @@
       "rating": 5,
       "num_reviews": 8,
       "link": "https://www.hellopeter.com/shiny-rock-polished"
+    }
+  },
+  {
+    "retailer": "Shiny Rock Polished",
+    "diamond": {
+      "carat_weight": null,
+      "shape": "round",
+      "type": "lab grown",
+      "colour": "H",
+      "clarity": "VS-SI",
+      "file": { "type": null, "name": null }
+    },
+    "metal": "9ct White Gold",
+    "engraving": true,
+    "warranty": "Wear and tear on rings is not covered, only manufacturing flaws",
+    "price": 13500,
+    "certificate": null,
+    "box": { "type": null, "file": null },
+    "payment": {
+      "options": [
+        "EFT",
+        "Credit Card",
+        "PayPal",
+        "Payflex",
+        "PayJustNow",
+        "Mobicred",
+        "Shiny Rock Payment Plan"
+      ],
+      "terms": "Agreed deposit to secure diamonds then final payment prior to delivery or payment via a payment plan"
+    },
+    "manufacturing_timeframe": "4 weeks",
+    "delivery_timeframe": "2 - 4 working days",
+    "link": "https://shinyrockpolished.com/",
+    "reviews": {
+      "type": "Hellopeter",
+      "rating": 5,
+      "num_reviews": 8,
+      "link": "https://www.hellopeter.com/shiny-rock-polished"
+    }
+  },
+  {
+    "retailer": "Grand Diamonds",
+    "diamond": {
+      "carat_weight": 0.01,
+      "shape": "round",
+      "type": "lab grown",
+      "colour": "F",
+      "clarity": "VVS",
+      "file": { "type": null, "name": null }
+    },
+    "metal": "9ct White Gold",
+    "engraving": true,
+    "warranty": "Warranty is on the workmanship of the ring. The ring should come in for a clean and polish once a year.  Free resizing on the ring up to 2 sizes bigger or smaller.",
+    "price": 13850,
+    "certificate": null,
+    "box": { "type": null, "file": null },
+    "payment": {
+      "options": ["EFT", "Credit Card"],
+      "terms": "50% deposit then final payment prior to delivery."
+    },
+    "manufacturing_timeframe": "7 - 10 working days",
+    "delivery_timeframe": "24 - 48 hours",
+    "link": "https://grand-diamonds.co.za/",
+    "reviews": {
+      "type": "Google",
+      "rating": 5,
+      "num_reviews": 273,
+      "link": "https://www.google.com/search?q=grand+diamonds&rlz=1C1CHBF_enZA1076ZA1076&oq=grand+diamonds&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgYIAhBFGDwyBggDEEUYPTIGCAQQRRg80gEIMTc3M2owajSoAgCwAgA&sourceid=chrome&ie=UTF-8"
+    }
+  },
+  {
+    "retailer": "Grand Diamonds",
+    "diamond": {
+      "carat_weight": 0.01,
+      "shape": "round",
+      "type": "lab grown",
+      "colour": "F",
+      "clarity": "VVS",
+      "file": { "type": null, "name": null }
+    },
+    "metal": "Platinum",
+    "engraving": true,
+    "warranty": "Warranty is on the workmanship of the ring. The ring should come in for a clean and polish once a year.  Free resizing on the ring up to 2 sizes bigger or smaller.",
+    "price": 19250,
+    "certificate": null,
+    "box": { "type": null, "file": null },
+    "payment": {
+      "options": ["EFT", "Credit Card"],
+      "terms": "50% deposit then final payment prior to delivery."
+    },
+    "manufacturing_timeframe": "7 - 10 working days",
+    "delivery_timeframe": "24 - 48 hours",
+    "link": "https://grand-diamonds.co.za/",
+    "reviews": {
+      "type": "Google",
+      "rating": 5,
+      "num_reviews": 273,
+      "link": "https://www.google.com/search?q=grand+diamonds&rlz=1C1CHBF_enZA1076ZA1076&oq=grand+diamonds&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgYIAhBFGDwyBggDEEUYPTIGCAQQRRg80gEIMTc3M2owajSoAgCwAgA&sourceid=chrome&ie=UTF-8"
     }
   }
 ]
