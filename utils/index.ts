@@ -1,210 +1,219 @@
-import { ReadonlyURLSearchParams } from "next/navigation";
-import engagementRingsData from "@/data/rings.json";
-import weddingBandsData from "@/data/wedding-bands.json";
+import engagementRingsData from "../data/rings.json";
+import weddingBandsData from "../data/wedding-bands.json";
 import {
-  Filter,
-  SortField,
-  giaClarityScale,
-  RingDataArray,
-} from "@/interfaces";
+	ExplorerState,
+	Filter,
+	FilterField,
+	FilterOption,
+	giaClarityScale,
+	giaColourScale,
+	RawSearchParams,
+	RingData,
+	RingDataArray,
+	RingType,
+	SortDirection,
+	SortField,
+	sortFields,
+} from "../interfaces";
 
-export type RingType = "engagement" | "wedding-band";
+const engagementRings = engagementRingsData as RingDataArray;
+const weddingBands = weddingBandsData as RingDataArray;
 
-export const BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://comparison-psi.vercel.app";
+const sortFieldSet = new Set<SortField>(
+	sortFields.map(({ field }) => field),
+);
 
-export const createUrl = (
-  pathname: string,
-  params: URLSearchParams | ReadonlyURLSearchParams
-) => {
-  const paramsString = params.toString();
-  const queryString = `${paramsString.length ? "?" : ""}${paramsString}`;
+const scalar = (value: string | string[] | undefined): string =>
+	(Array.isArray(value) ? value[0] : value)?.trim() ?? "";
 
-  return `${pathname}${queryString}`;
+export const slugify = (value: string): string =>
+	value
+		.toLocaleLowerCase("en-ZA")
+		.trim()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/(^-|-$)/g, "");
+
+export const getData = (ringType: RingType): RingDataArray =>
+	ringType === "wedding-band" ? weddingBands : engagementRings;
+
+const uniqueOptions = (
+	items: RingDataArray,
+	select: (item: RingData) => string,
+	order?: readonly string[],
+): FilterOption[] => {
+	const labels = [...new Set(items.map(select))];
+	labels.sort((a, b) => {
+		if (order) {
+			const aRank = order.indexOf(a);
+			const bRank = order.indexOf(b);
+			if (aRank !== -1 || bRank !== -1) {
+				if (aRank === -1) return 1;
+				if (bRank === -1) return -1;
+				return aRank - bRank;
+			}
+		}
+		return a.localeCompare(b, "en-ZA");
+	});
+
+	return labels.map((label) => ({ label, value: slugify(label) }));
 };
 
-const getData = (ringType: RingType = "engagement") => {
-  return ringType === "engagement" ? engagementRingsData : weddingBandsData;
+export const getFilterOptions = (
+	ringType: RingType,
+): Record<FilterField, FilterOption[]> => {
+	const data = getData(ringType);
+	return {
+		retailer: uniqueOptions(data, (item) => item.retailer),
+		type: uniqueOptions(data, (item) => item.diamond.type),
+		colour: uniqueOptions(data, (item) => item.diamond.colour, giaColourScale),
+		clarity: uniqueOptions(
+			data,
+			(item) => item.diamond.clarity,
+			giaClarityScale,
+		),
+		metal: uniqueOptions(data, (item) => item.metal),
+	};
 };
 
-const doFilter = (items: RingDataArray, filter: Filter): RingDataArray => {
-  const { retailer, type, colour, clarity, metal } = filter;
+const allowedFilterValue = (
+	value: string,
+	options: FilterOption[],
+): string | null => options.some((option) => option.value === value) ? value : null;
 
-  let filteredData = items;
+export const parseExplorerParams = (
+	params: RawSearchParams = {},
+): ExplorerState => {
+	const ringType: RingType =
+		scalar(params.ringType) === "wedding-band" ? "wedding-band" : "engagement";
+	const options = getFilterOptions(ringType);
+	const order = scalar(params.order).split(":");
+	const sortValue = (order[0] || scalar(params.sort)) as SortField;
+	const directionValue = (order[1] || scalar(params.dir)) as SortDirection;
+	const hasValidSort =
+		sortFieldSet.has(sortValue) &&
+		(directionValue === "asc" || directionValue === "desc");
 
-  if (retailer)
-    filteredData = filteredData.filter(
-      (item) => item.retailer.toLowerCase().replaceAll(" ", "-") === retailer
-    );
-  if (type)
-    filteredData = filteredData.filter(
-      (item) => item.diamond.type.toLowerCase().replaceAll(" ", "-") === type
-    );
-  if (colour)
-    filteredData = filteredData.filter(
-      (item) =>
-        item.diamond.colour.toLowerCase().replaceAll(" ", "-") === colour
-    );
-  if (clarity)
-    filteredData = filteredData.filter(
-      (item) =>
-        item.diamond.clarity.toLowerCase().replaceAll(" ", "-") === clarity
-    );
-  if (metal)
-    filteredData = filteredData.filter(
-      (item) => item.metal.toLowerCase().replaceAll(" ", "-") === metal
-    );
-
-  return filteredData;
+	return {
+		ringType,
+		query: scalar(params.q).slice(0, 80),
+		filter: {
+			retailer: allowedFilterValue(scalar(params.retailer), options.retailer),
+			type: allowedFilterValue(scalar(params.type), options.type),
+			colour: allowedFilterValue(scalar(params.colour), options.colour),
+			clarity: allowedFilterValue(scalar(params.clarity), options.clarity),
+			metal: allowedFilterValue(scalar(params.metal), options.metal),
+		},
+		...(hasValidSort
+			? { sort: sortValue, direction: directionValue }
+			: {}),
+	};
 };
 
-const doSort = (
-  items: RingDataArray,
-  sort: SortField,
-  dir: "asc" | "desc"
-): RingDataArray => {
-  if (sort === "retailer")
-    return items.sort((a, b) =>
-      dir === "asc"
-        ? a.retailer.localeCompare(b.retailer)
-        : b.retailer.localeCompare(a.retailer)
-    );
-  else if (sort === "carat-weight")
-    return items.sort((a, b) => {
-      const aWeight = a.diamond.carat_weight;
-      const bWeight = b.diamond.carat_weight;
-
-      // Handle null values: nulls go to the end when ascending, beginning when descending
-      if (aWeight === null && bWeight === null) return 0;
-      if (aWeight === null) return dir === "asc" ? 1 : -1;
-      if (bWeight === null) return dir === "asc" ? -1 : 1;
-
-      return dir === "asc" ? aWeight - bWeight : bWeight - aWeight;
-    });
-  else if (sort === "colour")
-    return items.sort((a, b) =>
-      dir === "asc"
-        ? b.diamond.colour.localeCompare(a.diamond.colour)
-        : a.diamond.colour.localeCompare(b.diamond.colour)
-    );
-  else if (sort === "clarity")
-    return items.sort((a, b) =>
-      dir === "asc"
-        ? giaClarityScale.indexOf(b.diamond.clarity) -
-          giaClarityScale.indexOf(a.diamond.clarity)
-        : giaClarityScale.indexOf(a.diamond.clarity) -
-          giaClarityScale.indexOf(b.diamond.clarity)
-    );
-  else if (sort === "price")
-    return items.sort((a, b) =>
-      dir === "asc" ? a.price - b.price : b.price - a.price
-    );
-  else if (sort === "reviews")
-    return items.sort((a, b) =>
-      dir === "asc"
-        ? a.reviews.rating * a.reviews.num_reviews -
-          b.reviews.rating * b.reviews.num_reviews
-        : b.reviews.rating * b.reviews.num_reviews -
-          a.reviews.rating * a.reviews.num_reviews
-    );
-
-  return items;
+const includesQuery = (item: RingData, query: string): boolean => {
+	if (!query) return true;
+	const searchable = [
+		item.retailer,
+		item.metal,
+		item.warranty,
+		item.diamond.shape,
+		item.diamond.type,
+		item.diamond.colour,
+		item.diamond.clarity,
+		item.certificate ?? "",
+		item.payment.options.join(" "),
+		item.payment.terms,
+		item.manufacturing_timeframe,
+		item.delivery_timeframe,
+	]
+		.join(" ")
+		.toLocaleLowerCase("en-ZA");
+	return searchable.includes(query.toLocaleLowerCase("en-ZA"));
 };
 
-export const getItems = async (
-  filter: Filter,
-  query?: string,
-  sort?: SortField,
-  dir?: "asc" | "desc",
-  ringType: RingType = "engagement"
-): Promise<RingDataArray> => {
-  const data = getData(ringType);
+const matchesFilter = (item: RingData, filter: Filter): boolean =>
+	(!filter.retailer || slugify(item.retailer) === filter.retailer) &&
+	(!filter.type || slugify(item.diamond.type) === filter.type) &&
+	(!filter.colour || slugify(item.diamond.colour) === filter.colour) &&
+	(!filter.clarity || slugify(item.diamond.clarity) === filter.clarity) &&
+	(!filter.metal || slugify(item.metal) === filter.metal);
 
-  if (query?.length) {
-    const lowerQuery = query?.toLowerCase();
-    const qData = data.filter(
-      (item) =>
-        item.retailer.toLowerCase().includes(lowerQuery) ||
-        item.metal.toLowerCase().includes(lowerQuery) ||
-        item.warranty.toLowerCase().includes(lowerQuery) ||
-        item.diamond.type.toLowerCase().includes(lowerQuery) ||
-        item.diamond.clarity.toLowerCase().includes(lowerQuery) ||
-        item.payment.terms.toLowerCase().includes(lowerQuery)
-    );
-
-    if (sort && dir) {
-      return doSort(doFilter(qData, filter), sort, dir);
-    }
-
-    return doFilter(qData, filter);
-  }
-
-  if (sort && dir) {
-    return doSort(doFilter(data, filter), sort, dir);
-  }
-
-  return doFilter(data, filter);
+const compareRank = (
+	a: string,
+	b: string,
+	order: readonly string[],
+	direction: SortDirection,
+): number => {
+	const aRank = order.indexOf(a);
+	const bRank = order.indexOf(b);
+	if (aRank === -1 && bRank === -1) return a.localeCompare(b, "en-ZA");
+	if (aRank === -1) return 1;
+	if (bRank === -1) return -1;
+	return direction === "asc" ? aRank - bRank : bRank - aRank;
 };
 
-export const getUniqueRetailers = (ringType: RingType = "engagement") => {
-  const data = getData(ringType);
-  return [...new Set(data.map((item) => item.retailer))].map((item) => {
-    return {
-      label: item,
-      value: item.toLowerCase().replaceAll(" ", "-"),
-    };
-  });
+const compareItems = (
+	a: RingData,
+	b: RingData,
+	sort: SortField,
+	direction: SortDirection,
+): number => {
+	const multiplier = direction === "asc" ? 1 : -1;
+	switch (sort) {
+		case "retailer":
+			return multiplier * a.retailer.localeCompare(b.retailer, "en-ZA");
+		case "carat-weight": {
+			const aWeight = a.diamond.carat_weight;
+			const bWeight = b.diamond.carat_weight;
+			if (aWeight === null && bWeight === null) return 0;
+			if (aWeight === null) return 1;
+			if (bWeight === null) return -1;
+			return multiplier * (aWeight - bWeight);
+		}
+		case "colour":
+			return compareRank(
+				a.diamond.colour,
+				b.diamond.colour,
+				giaColourScale,
+				direction,
+			);
+		case "clarity":
+			return compareRank(
+				a.diamond.clarity,
+				b.diamond.clarity,
+				giaClarityScale,
+				direction,
+			);
+		case "price":
+			return multiplier * (a.price - b.price);
+		case "reviews": {
+			const ratingDifference = multiplier * (a.reviews.rating - b.reviews.rating);
+			return ratingDifference || multiplier * (a.reviews.num_reviews - b.reviews.num_reviews);
+		}
+	}
 };
 
-export const getUniqueDiamondTypes = (ringType: RingType = "engagement") => {
-  const data = getData(ringType);
-  return [...new Set(data.map((item) => item.diamond.type))].map((item) => {
-    return {
-      label: item,
-      value: item.toLowerCase().replaceAll(" ", "-"),
-    };
-  });
+export const getItems = (state: ExplorerState): RingDataArray => {
+	const filtered = getData(state.ringType).filter(
+		(item) =>
+			includesQuery(item, state.query) && matchesFilter(item, state.filter),
+	);
+	return state.sort && state.direction
+		? [...filtered].sort((a, b) =>
+				compareItems(a, b, state.sort as SortField, state.direction as SortDirection),
+			)
+		: filtered;
 };
 
-export const getUniqueDiamondColours = (ringType: RingType = "engagement") => {
-  const data = getData(ringType);
-  return [...new Set(data.map((item) => item.diamond.colour))]
-    .sort((a, b) => a.localeCompare(b))
-    .map((item) => {
-      return {
-        label: item,
-        value: item.toLowerCase().replaceAll(" ", "-"),
-      };
-    });
-};
+export const formatCurrency = (price: number): string =>
+	new Intl.NumberFormat("en-ZA", {
+		style: "currency",
+		currency: "ZAR",
+		maximumFractionDigits: 0,
+	}).format(price);
 
-export const getUniqueDiamondClarities = (
-  ringType: RingType = "engagement"
-) => {
-  const data = getData(ringType);
-  return [...new Set(data.map((item) => item.diamond.clarity))].map((item) => {
-    return {
-      label: item,
-      value: item.toLowerCase().replaceAll(" ", "-"),
-    };
-  });
-};
-
-export const getUniqueMetals = (ringType: RingType = "engagement") => {
-  const data = getData(ringType);
-  return [...new Set(data.map((item) => item.metal))].map((item) => {
-    return {
-      label: item,
-      value: item.toLowerCase().replaceAll(" ", "-"),
-    };
-  });
-};
-
-// Legacy exports for backward compatibility (default to engagement rings)
-export const uniqueRetailers = getUniqueRetailers("engagement");
-export const uniqueDiamondTypes = getUniqueDiamondTypes("engagement");
-export const uniqueDiamondColours = getUniqueDiamondColours("engagement");
-export const uniqueDiamondClarities = getUniqueDiamondClarities("engagement");
-export const uniqueMetals = getUniqueMetals("engagement");
+export const hasActiveFilters = (state: ExplorerState): boolean =>
+	Boolean(
+		state.query ||
+			state.sort ||
+			Object.values(state.filter).some(Boolean),
+	);

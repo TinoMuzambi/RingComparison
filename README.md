@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ring Ledger
 
-## Getting Started
+Ring Ledger is a transparent comparison of South African engagement-ring and
+wedding-band quotes. It keeps the details that disappear in a price-only list—
+diamond grading, metal, warranty, lead time, payment terms, retailer ratings and
+the original reference media—together in one searchable ledger.
 
-First, run the development server:
+[View the live application](https://comparison-psi.vercel.app)
+
+## Why this project exists
+
+Ring quotes are difficult to compare because each retailer presents a different
+combination of materials, services and terms. Ring Ledger turns a personal
+research snapshot into a consistent decision-support interface. It is not a
+store, affiliate site or source of financial advice.
+
+The dataset was last updated in December 2025. Prices, reviews, availability and
+retailer terms can change; always verify them with the linked retailer before
+making a purchase.
+
+## Highlights
+
+- Server-rendered filtering, full-field search and deterministic sorting
+- Separate engagement-ring and wedding-band datasets
+- GIA-aware colour and clarity ordering, including mixed grades in the source
+- Responsive quote cards with progressively disclosed warranty and payment data
+- Lazy images and opt-in video loading to avoid downloading the 16 MB media set
+  on initial page load
+- URL-addressable filters that work without client-side JavaScript
+- Strict query validation, security headers, metadata, robots and sitemap
+- Automated unit, lint, type and production-build checks
+
+## Local development
+
+The supported runtimes are Node.js 20.19+, 22.13+ and 24+. CI and Vercel use
+Node.js 24.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quality checks
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
 
-## Learn More
+Run the complete suite with `npm run check`.
 
-To learn more about Next.js, take a look at the following resources:
+## Data and media
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The repository-owned snapshots live in `data/rings.json` and
+`data/wedding-bands.json`. Reference photos and videos live in `public/media`.
+Every referenced filename is present in the repository. Source records and media
+are intentionally kept intact; the interface treats missing optional fields as
+“Not provided” rather than inventing values.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To add a quote, follow the existing JSON shape and use one of the supported media
+types (`photo`, `video` or `null`). Then run the quality checks before publishing.
 
-## Deploy on Vercel
+## Architecture
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js App Router and React server components
+- TypeScript with strict checking
+- Plain CSS with no runtime styling dependency
+- Vitest for query, filtering and sorting behavior
+- Vercel deployment through the `comparison` project

@@ -1,15 +1,25 @@
 import Link from "next/link";
-import Search from "./search";
-import RingTypeToggle from "./ring-type-toggle";
 
-export default async function Navbar() {
+export default function Navbar() {
 	return (
-		<nav>
-			<Link href="/">
-				<h1 className="text-4xl font-bold">Comparisons</h1>
+		<header className="site-header">
+			<Link className="brand" href="/">
+				<span className="brand-mark" aria-hidden="true">
+					<span>RL</span>
+				</span>
+				<span>
+					<strong>Ring Ledger</strong>
+					<small>South African quote comparison</small>
+				</span>
 			</Link>
-			<RingTypeToggle />
-			<Search />
-		</nav>
+			<a
+				className="source-link"
+				href="https://github.com/TinoMuzambi/RingComparison"
+				target="_blank"
+				rel="noreferrer"
+			>
+				View source
+			</a>
+		</header>
 	);
 }
