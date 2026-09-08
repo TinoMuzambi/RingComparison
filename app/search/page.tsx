@@ -1,35 +1,31 @@
-import Items from "@/components/items";
-import { Filter, SortField } from "@/interfaces";
-import { getItems, RingType } from "@/utils";
+import { redirect } from "next/navigation";
 
-export default async function SearchPage({
+import { RawSearchParams } from "@/interfaces";
+
+const allowedKeys = new Set([
+	"ringType",
+	"q",
+	"retailer",
+	"type",
+	"colour",
+	"clarity",
+	"metal",
+	"order",
+	"sort",
+	"dir",
+]);
+
+export default async function LegacySearchPage({
 	searchParams,
 }: {
-	searchParams?: { [key: string]: string | string[] | undefined };
+	searchParams: Promise<RawSearchParams>;
 }) {
-	const { sort, dir, q, retailer, type, colour, clarity, metal, ringType } =
-		searchParams as {
-			[key: string]: string;
-		};
-
-	const selectedRingType =
-		(ringType as RingType) || ("engagement" as RingType);
-
-	const filter: Filter = {
-		retailer: retailer === "select" ? null : retailer,
-		type: type === "select" ? null : type,
-		colour: colour === "select" ? null : colour,
-		clarity: clarity === "select" ? null : clarity,
-		metal: metal === "select" ? null : metal,
-	};
-
-	const items = await getItems(
-		filter,
-		q,
-		sort as SortField,
-		dir as "asc" | "desc",
-		selectedRingType
-	);
-
-	return <Items items={items} />;
+	const current = await searchParams;
+	const query = new URLSearchParams();
+	for (const [key, value] of Object.entries(current)) {
+		if (!allowedKeys.has(key)) continue;
+		const scalar = Array.isArray(value) ? value[0] : value;
+		if (scalar) query.set(key, scalar);
+	}
+	redirect(query.size ? `/?${query.toString()}` : "/");
 }
